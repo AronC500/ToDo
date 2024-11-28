@@ -1,7 +1,9 @@
+* {
+  font-family: "Sour Gummy", sans-serif;
+}
 body {
   display: flex;
   flex-direction: column;
-  font-family: "Sour Gummy", sans-serif;
   padding-top: 25px;
   padding-left: 20px;
   padding-right: 20px;
@@ -32,25 +34,145 @@ body {
 #headerthree {
   display: flex;
   font-size: 25px;
-  padding-left: 5px;
-  justify-content: space-between;
-  padding-right: 60px;
+  padding: 0px 5px;
   border-bottom: 2px black solid;
+  justify-content: space-between;
 }
 #time {
+  margin-right: 11px;
+  max-width: 300px;
   display: flex;
-  gap: 15px;
+  gap: 40px;
 }
-#popup {
+#popup,
+#edit {
   display: none;
   position: fixed;
+  /*
+
+ Top: 50% moves the element so that its top edge is positioned halfway down the
+  container.
+ Left: 50% positions the left edge of the element halfway across the container.
+
+ It basically positions the top-left corner of the current element at the center
+ of the parent container so its not exactly at the center since it is not adjusting
+ for the width and height.
+
+ Therefore, you need transform:translate(-50%,-50%). The first parameter is the
+ width and second is the height. You basically move the element up by
+ 50% of its height since negative and left 50%  of its width since negative which
+ would make it like it moved the element the middle of the page.
+
+  */
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
   border: 2px black solid;
-  padding: 20px;
-  height: 250px;
-  width: 400px;
+  /*
+    First value is top, second is right, third is bottom, fourth is left.
+
+  */
+  padding: 10px 25px 25px 25px;
+  height: 265px;
+  width: 450px;
   border-radius: 10px;
+}
+.closebutton {
+  font-size: 32px;
+  margin-left: 430px;
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  width: 32px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+input {
+  padding: 3px 5px;
+  font-size: 15px;
+}
+
+#submit {
+  background-color: white;
+  padding: 8px 8px 8px 8px;
+  border: 2px black solid;
+  font-size: 19px;
+  cursor: pointer;
+  width: 150px;
+  margin-left: 300px;
+  margin-top: 20px;
+}
+#buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+#Editing,
+#delete {
+  margin-top: 20px;
+  border: 2px black solid;
+  font-size: 19px;
+  cursor: pointer;
+  background-color: white;
+
+  padding: 5px 15px;
+}
+label {
+  font-size: 20px;
+  margin-top: 5px;
+}
+#dateinput,
+#dateinputtwo {
+  width: 130px;
+}
+img {
+  width: 50px;
+  height: 50px;
+  padding-top: 15px;
+}
+.container {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  align-items: center;
+  border-bottom: 2px black solid;
+}
+.datescontainer {
+  display: flex;
+}
+.taskcontainertwo {
+  display: flex;
+  margin-left: 20px;
+  gap: 10px;
+  align-items: center;
+  overflow-x: hidden;
+}
+.priority {
+  text-align: center;
+  width: 130px;
+  font-size: 25px;
+}
+
+.date {
+  margin-right: 5px;
+  padding-left: 5px;
+  text-align: center;
+  width: 125px;
+  font-size: 25px;
+}
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+  width: 20px;
+  border: 2px black solid;
+  cursor: pointer;
+}
+.checkmark {
+  transform: translate(15%, -23%);
 }

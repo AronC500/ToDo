@@ -17,16 +17,105 @@
     <div id="header">TODO's</div>
     <div id="headertwo">
       <div id="add">+ Add New Task</div>
-      <div id="sort">Sort Tasks</div>
+      <div id="sort">
+        Sort by
+        <!--Gives the dropdown and the option is the values you can choose from-->
+        <select
+          id="sortOptions"
+          style="
+            background-color: transparent;
+            border: none;
+            outline: none;
+            font-size: 18px;
+          "
+        >
+          <option disabled selected></option>
+          <option value="priority">Priority</option>
+          <option value="dueDate">Due Date</option>
+        </select>
+      </div>
     </div>
     <div id="headerthree">
       <div>Tasks</div>
       <div id="time">
-        <div>Time Left</div>
+        <div>Priority</div>
         <div>Due Date</div>
       </div>
     </div>
-    <div id="popup"></div>
-    <div>Hi</div>
+    <div id="taskContainer"></div>
+
+    <div id="popup">
+      <div class="closebutton">X</div>
+      <form onsubmit="event.preventDefault()">
+        <!--for allows it so when you click on the label it selects the
+        respective input-->
+        <label for="taskinput">Task Name</label>
+        <!--
+        setCustomValidity is just the custom message when it doesnt fit requirement
+        OnInvalid basically is just when you submit form and the input is invalid
+        Oninput basically clear the custom message when you interact with the
+        input field -->
+        <input
+          type="text"
+          id="taskinput"
+          required
+          minlength="1"
+          oninvalid="setCustomValidity('Task name must be atleast 1 character long!')"
+          oninput="setCustomValidity('')"
+        />
+        <label>Priority</label>
+        <div>
+          <!--Grouping them by using name attribute required makes you choose
+          one of them.-->
+          <input type="radio" name="priorityinput" value="LOW" required /> Low
+          <input type="radio" name="priorityinput" value="MEDIUM" /> Medium
+          <input type="radio" name="priorityinput" value="HIGH" /> High
+        </div>
+        <label for="dateinput">Date</label>
+        <input
+          type="date"
+          id="dateinput"
+          required
+          oninvalid="setCustomValidity('Must have a due date!')"
+          oninput="setCustomValidity('')"
+        />
+
+        <button type="submit" id="submit">Add Task</button>
+      </form>
+    </div>
+
+    <div id="edit">
+      <div class="closebutton">X</div>
+      <form id="EditForm" onsubmit="event.preventDefault()">
+        <label for="taskinputtwo">Task Name</label>
+        <input
+          type="text"
+          id="taskinputtwo"
+          required
+          minlength="1"
+          oninvalid="setCustomValidity('Task name must be atleast 1 character long!')"
+          oninput="setCustomValidity('')"
+        />
+        <label>Priority</label>
+        <div>
+          <input type="radio" name="priorityinputtwo" value="LOW" required />
+          Low
+          <input type="radio" name="priorityinputtwo" value="MEDIUM" /> Medium
+          <input type="radio" name="priorityinputtwo" value="HIGH" /> High
+        </div>
+        <label for="dateinputtwo">Date</label>
+        <input
+          type="date"
+          id="dateinputtwo"
+          required
+          oninvalid="setCustomValidity('Must have a due date!')"
+          oninput="setCustomValidity('')"
+        />
+        <div id="buttons">
+          <div type="button" id="delete">Delete</div>
+          <div type="submit" id="Editing">Edit</div>
+        </div>
+      </form>
+    </div>
   </body>
 </html>
